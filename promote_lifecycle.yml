@@ -1,16 +1,17 @@
-- name: Promote lifecycle environment data.
-  hosts: localhost
-  gather_facts: false
-  vars_files:
-    - vars/my_sat.eyml
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    organization: Default Organization
+    lifecycle_environment: undef
+    current_lifecycle_environment: undef
+    content_view: undef
+
   tasks:
-  - name: "Promote {{ current_lifecycle_environment }} to {{ promote_lifecycle_environment }}"
-    theforeman.foreman.katello_content_view_version:
-      username: "{{ sat_user}}"
-      password: "{{ sat_password }}"
-      server_url: "{{ sat_url }}"
-      validate_certs: no
+  - name: Promote Content View
+    redhat.satellite.content_view_version:
       content_view: "{{ content_view }}"
-      organization: "{{ organization | default ('Default Organization') }}"
+      organization: "{{ organization }}"
+      lifecycle_environments: "{{ lifecycle_environment }}"
       current_lifecycle_environment: "{{ current_lifecycle_environment }}"
-      lifecycle_environments: "{{ promote_lifecycle_environment }}"
