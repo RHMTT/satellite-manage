@@ -14,5 +14,6 @@
       auto_attach: False
       release_version: "{{ item.release }}"
       service_level: "{{ item.service_level | default(omit) }}"
+      state: "{{ item.state | default('Present') }}"
     with_items:
       - "{{ activation_key_vars }}"
