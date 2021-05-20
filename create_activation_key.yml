@@ -7,7 +7,7 @@
       username: "admin"
       password: "ansible123"
       server_url: "https://student2-sat.wtome.rhtelco.io"
-      name: "RHEL7_QA_key"
+      name: "CLients1"
       organization: "Default Organization"
       lifecycle_environment: "Library"
       content_view: 'RHEL7'
