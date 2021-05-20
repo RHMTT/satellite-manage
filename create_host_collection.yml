@@ -1,8 +1,6 @@
 - name: create activation keys
   hosts: localhost
   gather_facts: false
-  vars_files:
-    - vars/my_sat.eyml  
   tasks:
   - name: "Create Foo host collection"
     redhat.satellite.host_collection:
