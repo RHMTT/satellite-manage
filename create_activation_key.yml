@@ -4,14 +4,15 @@
   tasks:
   - name: "Create katello client activation key"
     redhat.satellite.activation_key:
-      username: "admin"
-      password: "ansible123"
-      server_url: "https://student2-sat.wtome.rhtelco.io"
-      name: "CLients1"
-      organization: "Default Organization"
-      lifecycle_environment: "Library"
-      content_view: 'RHEL7'
+      name: "{{ item.key }}"
+      organization: "{{ item.organization | default ('Default Organization') }}"
+      lifecycle_environment: "{{ item.lifecycle }}"
+      content_view: "{{ item.content_view }}"
+      subscriptions: "{{ item.subscriptions | default(omit) }}"
+      content_overrides: "{{ item.content_overrides | default(omit) }}"
+      host_collections: "{{ item.host_collection | default(omit) }}"
       auto_attach: False
-      release_version: 7Server
-      service_level: Premium
-
+      release_version: "{{ item.release }}"
+      service_level: "{{ item.service_level | default(omit) }}"
+    with_items:
+      - "{{ activation_key_vars }}"
