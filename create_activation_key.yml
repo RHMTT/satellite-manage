@@ -9,7 +9,7 @@
       server_url: "https://student2-sat.wtome.rhtelco.io"
       name: "RHEL7_QA_key"
       organization: "Default Organization"
-      lifecycle_environment: "RHEL7_QA"
+      lifecycle_environment: "Library"
       content_view: 'RHEL7'
       auto_attach: False
       release_version: 7Server
