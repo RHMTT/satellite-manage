@@ -5,7 +5,7 @@
   - name: "Create katello client activation key"
     redhat.satellite.activation_key:
       name: "{{ item.key }}"
-      organization: "{{ item.organization | default ('Default Organization') }}"
+      organization: "Default Organization"
       lifecycle_environment: "{{ item.lifecycle }}"
       content_view: "{{ item.content_view }}"
       subscriptions: "{{ item.subscriptions | default(omit) }}"
