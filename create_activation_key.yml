@@ -4,6 +4,9 @@
   tasks:
   - name: "Create katello client activation key"
     redhat.satellite.activation_key:
+      username: "admin"
+      password: "ansible123"
+      server_url: "https://student2-sat.wtome.rhtelco.io"
       name: "{{ item.key }}"
       organization: "Default Organization"
       lifecycle_environment: "{{ item.lifecycle }}"
