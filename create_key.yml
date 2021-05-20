@@ -10,7 +10,7 @@
       name: "Clients"
       organization: "Default Organization"
       lifecycle_environment: "Library"
-      content_view: 'client content view'
+      content_view: 'RHEL7'
       auto_attach: False
       release_version: 7Server
       service_level: Premium
